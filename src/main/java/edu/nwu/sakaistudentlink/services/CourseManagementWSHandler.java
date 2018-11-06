@@ -13,7 +13,7 @@ import java.util.Map;
 import javax.ws.rs.core.Response;
 import javax.xml.ws.BindingProvider;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.slf4j.Logger;
