@@ -205,22 +205,24 @@ public class CourseManagementWSHandler {
             sql.append("CM_YEAR_CAMPUS c ");
             sql.append("WHERE l.year_campus_f_id = c.year_campus_id ");
             sql.append("AND c.year = ? ");
+            sql.append("AND c.campus_code = ? ");
             sql.append("AND l.username = ?) ");
             sql.append("AND course_code = ? ");
             sql.append("AND course_level = ? ");
-            sql.append("AND course_module = ?");
+            sql.append("AND course_module = ? ");
             sql.append("AND method_of_del = ? ");
             sql.append("AND present_cat = ?");
             pstmt = connection.prepareStatement(sql.toString());
             pstmt.setString(1, ModuleLinkStatus.DONE.toString());
             pstmt.setString(2, ModuleLinkStatus.INSERTED.toString());
             pstmt.setInt(3, year);
-            pstmt.setString(4, lecturerUserName);
-            pstmt.setString(5, moduleDetail.getModuleSubjectCode());
-            pstmt.setString(6, moduleDetail.getCourseLevel());
-            pstmt.setString(7, moduleDetail.getCourseModule());
-            pstmt.setString(8, moduleDetail.getMethodOfDeliveryCodeParam());
-            pstmt.setString(9, moduleDetail.getModeOfDeliveryCodeParam());
+            pstmt.setString(4, moduleDetail.getModuleSite());
+            pstmt.setString(5, lecturerUserName);
+            pstmt.setString(6, moduleDetail.getModuleSubjectCode());
+            pstmt.setString(7, moduleDetail.getCourseLevel());
+            pstmt.setString(8, moduleDetail.getCourseModule());
+            pstmt.setString(9, moduleDetail.getMethodOfDeliveryCodeParam());
+            pstmt.setString(10, moduleDetail.getModeOfDeliveryCodeParam());
             pstmt.executeUpdate();
         }
         catch (ConnectionNotEstablishedException e) {
